@@ -4,6 +4,23 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: added
+          description: RBAC is optional and an existing config map can be supplied for configuration.
+    apiVersion: v2
+    appVersion: v0.14.18
+    created: "2022-10-27T21:44:56.801352988Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 0.2.2
+    description: Chart for benphelps homepage
+    digest: 2be03edac88c3e8f3147cc342c1a720646e461e9a8c76df6162b9926f73d1ee4
+    name: homepage
+    urls:
+    - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.2/homepage-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
           description: Initial version
     apiVersion: v2
     appVersion: v0.14.18
@@ -18,4 +35,4 @@ entries:
     urls:
     - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.1/homepage-0.0.1.tgz
     version: 0.0.1
-generated: "2022-10-27T16:27:07.674860803Z"
+generated: "2022-10-27T21:44:56.801371088Z"
