@@ -1,0 +1,21 @@
+apiVersion: v1
+entries:
+  homepage:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
+          description: Initial version
+    apiVersion: v2
+    appVersion: v0.14.18
+    created: "2022-10-27T16:27:07.674843403Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 0.2.2
+    description: Chart for benphelps homepage
+    digest: 20989a190c72d293296cfa58525bc97e98a9ed972fee24a39acc77a6bff6874e
+    name: homepage
+    urls:
+    - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.1/homepage-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-10-27T16:27:07.674860803Z"
