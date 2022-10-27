@@ -1,0 +1,80 @@
+image:
+  repository: ghcr.io/benphelps/homepage
+  # tag: v0.4.18
+
+serviceAccount:
+  name: homepage
+
+service:
+  main:
+    ports:
+      http:
+        port: 3000
+
+ingress:
+  main:
+    enabled: false
+    # labels:
+    #   homepage/enabled: "true"
+    # annotations:
+    #   homepage/name: "Homepage"
+    #   homepage/description: "A modern, secure, highly customizable application dashboard."
+    #   homepage/group: "A New Group"
+    #   homepage/icon: "homepage.png"
+    # ingressClassName: "nginx"
+    # hosts:
+    #   - host: &host "homepage.example.com"
+    #     paths:
+    #       - path: /
+    #         pathType: Prefix
+    # tls:
+    #   - hosts:
+    #       - *host
+
+config:
+  bookmarks:
+    - Developer:
+        - Github:
+            - abbr: GH
+              href: https://github.com/
+  services:
+    - My First Group:
+        - My First Service:
+            href: http://localhost/
+            description: Homepage is awesome
+
+    - My Second Group:
+        - My Second Service:
+            href: http://localhost/
+            description: Homepage is the best
+
+    - My Third Group:
+        - My Third Service:
+            href: http://localhost/
+            description: Homepage is 😎
+  widgets:
+    - resources:
+        backend: kubernetes
+        expanded: true
+        cpu: true
+        memory: true
+    - search:
+        provider: duckduckgo
+        target: _blank
+  kubernetes:
+  docker:
+  settings:
+
+persistence:
+  logs:
+    enabled: true
+    type: emptyDir
+    mountPath: /app/config/logs
+
+resources:
+  requests:
+    memory: 10Mi
+    cpu: 10m
+  limits:
+    memory: 200Mi
+    cpu: 500m
