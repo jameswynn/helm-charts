@@ -1,0 +1,28 @@
+---
+{{- include "common.values.setup" . }}
+
+{{- define "app-template.hardcodedValues" -}}
+
+# Set the nameOverride based on the release name if no override has been set
+{{ if not .Values.global.nameOverride }}
+global:
+  nameOverride: "{{ .Release.Name }}"
+{{ end }}
+
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "app-template.hardcodedValues" . | fromYaml) -}}
+
+{{/* Append the configMap volume to the volumes */}}
+{{- define "homepage.configVolume" -}}
+enabled: "true"
+mountPath: "/app/config"
+type: "custom"
+volumeSpec:
+  configMap:
+    name: {{ include "common.names.fullname" . }}
+{{- end -}}
+{{- $_ := set .Values.persistence "homepage-config" (include "homepage.configVolume" . | fromYaml) -}}
+
+{{- $_ := set .Values.serviceAccount "create" "true" -}}
+
+{{ include "common.all" . }}
