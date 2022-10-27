@@ -1,3 +1,4 @@
+{{ if not .Values.config.useExistingConfigMap }}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -30,3 +31,4 @@ data:
 {{- .Values.config.widgets | toYaml | nindent 4 }}
 {{- else }} ""
 {{- end }}
+{{ end }}

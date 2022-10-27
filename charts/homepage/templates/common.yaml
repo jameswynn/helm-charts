@@ -19,10 +19,12 @@ mountPath: "/app/config"
 type: "custom"
 volumeSpec:
   configMap:
-    name: {{ include "common.names.fullname" . }}
+    name: {{ (default (include "common.names.fullname" .) .Values.config.useExistingConfigMap) }}
 {{- end -}}
 {{- $_ := set .Values.persistence "homepage-config" (include "homepage.configVolume" . | fromYaml) -}}
 
+{{ if .Values.enableRbac }}
 {{- $_ := set .Values.serviceAccount "create" "true" -}}
+{{ end }}
 
 {{ include "common.all" . }}
