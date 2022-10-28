@@ -13,11 +13,7 @@ helm install my-release jameswynn/homepage
 
 ## Introduction
 
-This chart bootstraps a [PostgreSQL](https://github.com/bitnami/containers/tree/main/bitnami/postgresql) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
-
-For HA, please see [this repo](https://github.com/bitnami/charts/tree/main/bitnami/postgresql-ha)
-
-Bitnami charts can be used with [Kubeapps](https://kubeapps.dev/) for deployment and management of Helm Charts in clusters.
+This chart bootstraps a [Homepage](https://github.com/benphelps/homepage) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
