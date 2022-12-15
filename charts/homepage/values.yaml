@@ -8,6 +8,8 @@ enableRbac: false
 serviceAccount:
   # Specify a different service account name
   name: homepage
+  # Create service account. Needed when RBAC is enabled.
+  create: false
 
 service:
   main:
@@ -15,22 +17,28 @@ service:
       http:
         port: 3000
 
+controller:
+  strategy: RollingUpdate
+  rollingUpdate:
+    maxSurge: 25%
+    maxUnavailable: 25%
+
 # Enable the ingress to expose Homepage to the network.
 ingress:
   main:
     enabled: false
     # labels:
     #   # This label will enable discover of this deployment in Homepage
-    #   homepage/enabled: "true"
+    #   gethomepage.dev/enabled: "true"
     # annotations:
     #   # These annotations will configure how this deployment is shown in Homepage
-    #   homepage/name: "Homepage"
-    #   homepage/description: "A modern, secure, highly customizable application dashboard."
-    #   homepage/group: "A New Group"
-    #   homepage/icon: "homepage.png"
+    #   gethomepage.dev/name: "Homepage"
+    #   gethomepage.dev/description: "A modern, secure, highly customizable application dashboard."
+    #   gethomepage.dev/group: "A New Group"
+    #   gethomepage.dev/icon: "homepage.png"
     # ingressClassName: "nginx"
     # hosts:
-    #   - host: &host "homepage.example.com"
+    #   - host: &host "homepage.local"
     #     paths:
     #       - path: /
     #         pathType: Prefix
@@ -72,6 +80,19 @@ config:
     - search:
         provider: duckduckgo
         target: _blank
+    ## Uncomment to enable Kubernetes integration
+    # - kubernetes:
+    #     cluster:
+    #       show: true
+    #       cpu: true
+    #       memory: true
+    #       showLabel: true
+    #       label: "cluster"
+    #     nodes:
+    #       show: true
+    #       cpu: true
+    #       memory: true
+    #       showLabel: true
   kubernetes:
     # change mode to 'cluster' to use RBAC service account
     mode: disable
