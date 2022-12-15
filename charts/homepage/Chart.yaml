@@ -2,7 +2,7 @@
 apiVersion: v2
 description: Chart for benphelps homepage
 name: homepage
-version: 0.0.2
+version: 0.0.3
 appVersion: v0.14.18
 dependencies:
   - name: common
@@ -11,4 +11,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: RBAC is optional and an existing config map can be supplied for configuration.
+      description: Bumped dependency version, improved example values.
