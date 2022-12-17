@@ -1,4 +1,4 @@
-{{- include "common.values.setup" . -}}
+{{- include "bjw-s.common.loader.init" . }}
 {{ if .Values.enableRbac }}
 {{- $serviceAccountName := include "common.names.serviceAccountName" . -}}
 ---

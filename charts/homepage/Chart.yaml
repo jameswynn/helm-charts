@@ -2,8 +2,8 @@
 apiVersion: v2
 description: Chart for benphelps homepage
 name: homepage
-version: 0.0.3
-appVersion: v0.14.18
+version: 0.0.4
+appVersion: v0.5.4
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
