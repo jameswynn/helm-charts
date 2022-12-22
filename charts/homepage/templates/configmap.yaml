@@ -3,9 +3,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "common.names.fullname" . }}
+  name: {{ template "bjw-s.common.lib.chart.names.fullname" . }}
   labels:
-    {{- include "common.labels" . | nindent 4 }}
+    {{- include "bjw-s.common.lib.metadata.allLabels" . | nindent 4 }}
 data:
   bookmarks.yaml: {{- if .Values.config.bookmarks }} |
 {{- .Values.config.bookmarks | toYaml | nindent 4}}

@@ -1,5 +1,5 @@
 ---
-{{- include "common.values.setup" . }}
+{{- include "bjw-s.common.loader.init" . }}
 
 {{- define "app-template.hardcodedValues" -}}
 
@@ -19,7 +19,7 @@ mountPath: "/app/config"
 type: "custom"
 volumeSpec:
   configMap:
-    name: {{ (default (include "common.names.fullname" .) .Values.config.useExistingConfigMap) }}
+    name: {{ (default (include "bjw-s.common.lib.chart.names.fullname" .) .Values.config.useExistingConfigMap) }}
 {{- end -}}
 {{- $_ := set .Values.persistence "homepage-config" (include "homepage.configVolume" . | fromYaml) -}}
 
@@ -27,4 +27,5 @@ volumeSpec:
 {{- $_ := set .Values.serviceAccount "create" "true" -}}
 {{ end }}
 
-{{ include "common.all" . }}
+{{/* Render the templates */}}
+{{ include "bjw-s.common.loader.generate" . }}
