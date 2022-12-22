@@ -9,8 +9,7 @@ sources:
   - https://github.com/jameswynn/helm-charts/charts/homepage
   - https://github.com/benphelps/homepage/
 maintainers:
-  - name: James Wynn
-    email: james@jameswynn.com
+  - name: jameswynn
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
