@@ -34,4 +34,4 @@ jobs:
           kubectl_version: v1.21.5
         if: steps.list-changed.outputs.changed == 'true'
       - name: Run chart-testing (install)
-        run: ct install --target-branch main
+        run: ct install --target-branch main --chart-repos bjw-s=https://bjw-s.github.io/helm-charts
