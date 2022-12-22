@@ -3,7 +3,7 @@ apiVersion: v2
 description: Chart for external-dns-adguard, a package like external-dns but for AdGuard Home
 name: external-dns-adguard
 version: 0.0.1
-appVersion: v1.1.0
+appVersion: 1.1.0
 sources:
   - https://github.com/jameswynn/helm-charts/charts/external-dns-adguard
   - https://github.com/jameswynn/external-dns-adguard
