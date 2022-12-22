@@ -6,6 +6,29 @@ entries:
         - kind: added
           description: Bumped dependency version, improved example values.
     apiVersion: v2
+    appVersion: v0.5.4
+    created: "2022-12-22T18:25:43.588577086Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 1.2.0
+    description: Chart for benphelps homepage
+    digest: 37f46e35b3d5b4034dd385f1b9bf76e4037cb67c85698551486f4191de0639bd
+    icon: https://github.com/benphelps/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
+    maintainers:
+    - name: jameswynn
+    name: homepage
+    sources:
+    - https://github.com/jameswynn/helm-charts/charts/homepage
+    - https://github.com/benphelps/homepage/
+    urls:
+    - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.4/homepage-0.0.4.tgz
+    version: 0.0.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
+          description: Bumped dependency version, improved example values.
+    apiVersion: v2
     appVersion: v0.14.18
     created: "2022-12-15T13:35:23.816726128Z"
     dependencies:
@@ -52,4 +75,4 @@ entries:
     urls:
     - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.1/homepage-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-15T13:35:23.816743229Z"
+generated: "2022-12-22T18:25:43.588598487Z"
