@@ -1,0 +1,2 @@
+serviceAccount:
+  name: external-dns-adguard-test
