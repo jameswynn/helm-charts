@@ -1,5 +1,29 @@
 apiVersion: v1
 entries:
+  external-dns-adguard:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
+          description: Initial chart version
+    apiVersion: v2
+    appVersion: 1.1.0
+    created: "2022-12-22T20:02:04.681945217Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 1.2.0
+    description: Chart for external-dns-adguard, a package like external-dns but for
+      AdGuard Home
+    digest: b2bf9020202e53910e6ffca4f2390ffe66a97702e5bde45f317527ae8c333c45
+    maintainers:
+    - name: jameswynn
+    name: external-dns-adguard
+    sources:
+    - https://github.com/jameswynn/helm-charts/charts/external-dns-adguard
+    - https://github.com/jameswynn/external-dns-adguard
+    urls:
+    - https://github.com/jameswynn/helm-charts/releases/download/external-dns-adguard-0.0.1/external-dns-adguard-0.0.1.tgz
+    version: 0.0.1
   homepage:
   - annotations:
       artifacthub.io/changes: |-
@@ -75,4 +99,4 @@ entries:
     urls:
     - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.1/homepage-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-22T18:25:43.588598487Z"
+generated: "2022-12-22T20:02:04.681960817Z"
