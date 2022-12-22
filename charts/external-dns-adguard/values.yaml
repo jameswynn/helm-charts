@@ -1,0 +1,40 @@
+image:
+  repository: ghcr.io/jameswynn/external-dns-adguard
+  # tag: v1.0.0
+
+enableRbac: true
+
+serviceAccount:
+  # Specify a different service account name
+  name: external-dns-adguard
+  create: true
+
+env:
+  - name: MODE
+    value: PROD
+  - name: DATABASE_FILE
+    value: /data/rules.db
+  # Change these values, or even better, load them from a secret as indicated below
+  # - name: ADGUARD_URL
+  #   value: "localhost:8080"
+  # - name: ADGUARD_USERNAME
+  #   value: "changeme"
+  # - name: ADGUARD_PASSWORD
+  #   value: "changeme"
+
+# It is recommended to place the ADGUARD_URL, ADGUARD_USERNAME, and ADGUARD_PASSWORD
+# variables in a secret and reference them like this:
+# envFrom:
+#   - secretRef:
+#       name: external-dns-adguard
+
+persistence:
+  data:
+    # enable persistence to be able to track modifications of hostnames over time
+    enabled: false
+    size: 100Mi
+    mountPath: /data
+
+service:
+  main:
+    enabled: false
