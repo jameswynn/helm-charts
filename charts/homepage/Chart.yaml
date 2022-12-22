@@ -10,6 +10,7 @@ sources:
   - https://github.com/benphelps/homepage/
 maintainers:
   - name: James Wynn
+    email: james@jameswynn.com
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
