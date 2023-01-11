@@ -28,6 +28,29 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: added
+          description: Bumped dependency version, removed default resource limits.
+    apiVersion: v2
+    appVersion: v0.5.10
+    created: "2023-01-11T15:43:45.223279081Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 1.2.0
+    description: Chart for benphelps homepage
+    digest: 11a880da76d7d1c7ad736e93c7324f7c5debf1288f95d65155eafca0f8cbcad1
+    icon: https://github.com/benphelps/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
+    maintainers:
+    - name: jameswynn
+    name: homepage
+    sources:
+    - https://github.com/jameswynn/helm-charts/charts/homepage
+    - https://github.com/benphelps/homepage/
+    urls:
+    - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.5/homepage-0.0.5.tgz
+    version: 0.0.5
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
           description: Bumped dependency version, improved example values.
     apiVersion: v2
     appVersion: v0.5.4
@@ -99,4 +122,4 @@ entries:
     urls:
     - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.1/homepage-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-22T20:02:04.681960817Z"
+generated: "2023-01-11T15:43:45.223305583Z"
