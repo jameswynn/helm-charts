@@ -3,8 +3,8 @@ apiVersion: v2
 description: Chart for benphelps homepage
 icon: https://github.com/benphelps/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
 name: homepage
-version: 0.0.5
-appVersion: v0.5.10
+version: 1.0.0
+appVersion: v0.6.0
 sources:
   - https://github.com/jameswynn/helm-charts/charts/homepage
   - https://github.com/benphelps/homepage/
@@ -13,8 +13,8 @@ maintainers:
 dependencies:
   - name: common
     repository: https://bjw-s.github.io/helm-charts
-    version: 1.2.0
+    version: 1.2.1
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: Bumped dependency version, removed default resource limits.
+      description: Bumped dependency versions
