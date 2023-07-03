@@ -43,6 +43,7 @@ rules:
       - list
   - apiGroups:
       - traefik.containo.us
+      - traefik.io
     resources:
       - ingressroutes
     verbs:
