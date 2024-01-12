@@ -1,8 +1,8 @@
-# Homepage (benphelps)
+# Homepage ([gethomepage.dev](https://gethomepage.dev/))
 
 A modern (fully static, fast), secure (fully proxied), highly customizable application dashboard with integrations for more than 25 services and translations for over 15 languages. Easily configured via YAML files (or discovery via docker labels).
 
-[Homepage](https://github.com/benphelps/homepage)
+[Homepage](https://github.com/gethomepage/homepage)
 
 ## TL;DR
 
@@ -13,7 +13,7 @@ helm install my-release jameswynn/homepage
 
 ## Introduction
 
-This chart bootstraps a [Homepage](https://github.com/benphelps/homepage) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart bootstraps a [Homepage](https://github.com/gethomepage/homepage) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
