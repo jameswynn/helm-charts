@@ -4,7 +4,7 @@ description: Chart for gethomepage/homepage
 icon: https://github.com/gethomepage/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
 name: homepage
 version: 1.2.3
-appVersion: v0.6.10
+appVersion: v0.8.8
 sources:
   - https://github.com/jameswynn/helm-charts/charts/homepage
   - https://github.com/gethomepage/homepage/
