@@ -1,4 +1,6 @@
-{{ if not .Values.config.useExistingConfigMap }}
+{{- if not .Values.config.useExistingConfigMap -}}
+{{/* Make sure all variables are set properly */}}
+{{- include "app-template.init" . -}}
 ---
 apiVersion: v1
 kind: ConfigMap

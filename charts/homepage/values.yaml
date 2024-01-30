@@ -104,7 +104,6 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /app/config/logs
-
 # resources:
 #   requests:
 #     memory: 10Mi
