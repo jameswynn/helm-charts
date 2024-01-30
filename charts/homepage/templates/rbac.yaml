@@ -1,5 +1,6 @@
-{{- include "bjw-s.common.loader.init" . }}
 {{ if .Values.enableRbac }}
+{{/* Make sure all variables are set properly */}}
+{{- include "app-template.init" . -}}
 {{- $serviceAccountName := include "bjw-s.common.lib.chart.names.serviceAccountName" . -}}
 ---
 apiVersion: v1
