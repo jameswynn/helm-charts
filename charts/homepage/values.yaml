@@ -136,7 +136,7 @@ env:
 #   - configMapRef:
 #       name: my-configmap
 
-  persistence:
+persistence:
   logs:
     enabled: true
     type: emptyDir
