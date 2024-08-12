@@ -34,6 +34,8 @@ subPath:
 {{- end -}}
 {{- $_ := set .Values.persistence "homepage-config" (include "homepage.configVolume" . | fromYaml) -}}
 
+{{- $_ := set .Values.controller.annotations "values-checksum" ( print .Values | sha256sum ) -}}
+
 {{ if .Values.enableRbac }}
 {{- $_ := set .Values.serviceAccount "create" "true" -}}
 {{ end }}
