@@ -28,6 +28,29 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: added
+          description: Bumped app versions, fixed default service account, resource names are more consistent
+    apiVersion: v2
+    appVersion: v0.9.6
+    created: "2024-08-12T15:39:45.035058237Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s.github.io/helm-charts
+      version: 1.3.1
+    description: Chart for Homepage
+    digest: ca40d0d1d4ee87562477f652e05a8cc9d65f296ee754a0a01232b6a84ee16f59
+    icon: https://github.com/gethomepage/homepage/blob/main/public/mstile-150x150.png
+    maintainers:
+    - name: jameswynn
+    name: homepage
+    sources:
+    - https://github.com/jameswynn/helm-charts/charts/homepage
+    - https://github.com/gethomepage/homepage/
+    urls:
+    - https://github.com/jameswynn/helm-charts/releases/download/homepage-2.0.0/homepage-2.0.0.tgz
+    version: 2.0.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
           description: Bumped dependency versions and app versions
     apiVersion: v2
     appVersion: v0.6.10
@@ -283,4 +306,4 @@ entries:
     urls:
     - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.1/homepage-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-29T20:28:31.384635726Z"
+generated: "2024-08-12T15:39:45.035149948Z"
