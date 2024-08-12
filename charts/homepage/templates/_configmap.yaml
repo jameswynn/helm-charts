@@ -1,9 +1,15 @@
+{{- define "homepage.configmap" -}}
 {{ if not .Values.config.useExistingConfigMap }}
 ---
+{{- $values := .Values -}}
+{{- $configName := include "bjw-s.common.lib.chart.names.fullname" . -}}
+{{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
+  {{- $configName = printf "%v-%v" $configName $values.nameOverride -}}
+{{ end -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "bjw-s.common.lib.chart.names.fullname" . }}
+  name: {{ $configName }}
   labels:
     {{- include "bjw-s.common.lib.metadata.allLabels" . | nindent 4 }}
 data:
@@ -32,3 +38,4 @@ data:
 {{- else }} ""
 {{- end }}
 {{ end }}
+{{- end -}}
