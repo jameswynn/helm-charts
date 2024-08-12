@@ -28,11 +28,13 @@ subPath:
   - path: services.yaml
     mountPath: /app/config/services.yaml
   - path: settings.yaml
-    mountPath: /app/config/settings.yaml
+    mountPath: /app/config/settings.yaml  
   - path: widgets.yaml
     mountPath: /app/config/widgets.yaml
 {{- end -}}
 {{- $_ := set .Values.persistence "homepage-config" (include "homepage.configVolume" . | fromYaml) -}}
+
+{{- $_ := set .Values.controller.annotations "values-checksum" ( print .Values | sha256sum ) -}}
 
 {{ if .Values.enableRbac }}
 {{- $_ := set .Values.serviceAccount "create" "true" -}}
