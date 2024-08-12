@@ -1,13 +1,22 @@
 image:
-  repository: ghcr.io/benphelps/homepage
+  repository: ghcr.io/gethomepage/homepage
   # tag: v0.6.0
 
 # Enable RBAC. RBAC is necessary to use Kubernetes integration
 enableRbac: false
 
+extraClusterRoles:
+  # - apiGroups:
+  #   - some-group
+  #   resources:
+  #   - some-resource
+  #   verbs:
+  #   - get
+
 serviceAccount:
-  # Specify a different service account name
-  name: homepage
+  # Specify a different service account name. When blank it will default to the release
+  # name if *create* is enabled, otherwise it will refer to the default service account.
+  name: ""
   # Create service account. Needed when RBAC is enabled.
   create: false
 
@@ -98,6 +107,34 @@ config:
     mode: disable
   docker:
   settings:
+
+# -- Main environment variables. Template enabled.
+# Syntax options:
+# A) TZ: UTC
+# B) PASSWD: '{{ .Release.Name }}'
+# C) PASSWD:
+#      configMapKeyRef:
+#        name: config-map-name
+#        key: key-name
+# D) PASSWD:
+#      valueFrom:
+#        secretKeyRef:
+#          name: secret-name
+#          key: key-name
+#      ...
+# E) - name: TZ
+#      value: UTC
+# F) - name: TZ
+#      value: '{{ .Release.Name }}'
+env:
+
+# To include environment variables from other configs or other secrets for use in
+# Homepage's variable substitutions. Refer to them here.
+# envFrom:
+#   - secretRef:
+#       name: my-secret
+#   - configMapRef:
+#       name: my-configmap
 
 persistence:
   logs:

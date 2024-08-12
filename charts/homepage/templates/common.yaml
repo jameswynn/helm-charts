@@ -1,4 +1,3 @@
----
 {{- include "bjw-s.common.loader.init" . }}
 
 {{- define "app-template.hardcodedValues" -}}
@@ -38,6 +37,9 @@ subPath:
 {{ if .Values.enableRbac }}
 {{- $_ := set .Values.serviceAccount "create" "true" -}}
 {{ end }}
+
+{{ include "homepage.configmap" . }}
+{{ include "homepage.rbac" . }}
 
 {{/* Render the templates */}}
 {{ include "bjw-s.common.loader.generate" . }}
