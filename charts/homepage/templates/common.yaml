@@ -28,7 +28,7 @@ subPath:
   - path: services.yaml
     mountPath: /app/config/services.yaml
   - path: settings.yaml
-    mountPath: /app/config/settings.yaml  
+    mountPath: /app/config/settings.yaml
   - path: widgets.yaml
     mountPath: /app/config/widgets.yaml
 {{- end -}}
