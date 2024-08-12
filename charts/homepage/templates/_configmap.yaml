@@ -1,7 +1,7 @@
 {{- define "homepage.configmap" -}}
 {{ if not .Values.config.useExistingConfigMap }}
 ---
-{{- $values := .Values -}}
+{{ $values := .Values -}}
 {{- $configName := include "bjw-s.common.lib.chart.names.fullname" . -}}
 {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
   {{- $configName = printf "%v-%v" $configName $values.nameOverride -}}
@@ -38,4 +38,4 @@ data:
 {{- else }} ""
 {{- end }}
 {{ end }}
-{{- end -}}
+{{- end }}

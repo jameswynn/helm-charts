@@ -75,4 +75,4 @@ subjects:
     name: {{ $serviceAccountName }}
     namespace: {{ .Release.Namespace }}
 {{ end }}
-{{- end -}}
+{{- end }}

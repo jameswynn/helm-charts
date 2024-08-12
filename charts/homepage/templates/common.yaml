@@ -1,4 +1,3 @@
----
 {{- include "bjw-s.common.loader.init" . }}
 
 {{- define "app-template.hardcodedValues" -}}
