@@ -18,23 +18,27 @@ type: "custom"
 volumeSpec:
   configMap:
     name: {{ (default (include "bjw-s.common.lib.chart.names.fullname" .) .Values.config.useExistingConfigMap) }}
-subPath:
-  - path: bookmarks.yaml
-    mountPath: /app/config/bookmarks.yaml
-  - path: docker.yaml
-    mountPath: /app/config/docker.yaml
-  - path: kubernetes.yaml
-    mountPath: /app/config/kubernetes.yaml
-  - path: services.yaml
-    mountPath: /app/config/services.yaml
-  - path: settings.yaml
-    mountPath: /app/config/settings.yaml
-  - path: widgets.yaml
-    mountPath: /app/config/widgets.yaml
+# Modified this to use advancedMounts, instead of subPath, because that's what the Common library expects for subPath mounts
+advancedMounts:
+  main:
+    main:
+      - path: /config/bookmarks.yaml
+        subPath: bookmarks.yaml
+      - path: /config/docker.yaml
+        subPath: docker.yaml
+      - path: /config/kubernetes.yaml
+        subPath: kubernetes.yaml
+      - path: /config/services.yaml
+        subPath: services.yaml
+      - path: /config/settings.yaml
+        subPath: settings.yaml
+      - path: /config/widgets.yaml
+        subPath: widgets.yaml
 {{- end -}}
 {{- $_ := set .Values.persistence "homepage-config" (include "homepage.configVolume" . | fromYaml) -}}
 
-{{- $_ := set .Values.controller.annotations "values-checksum" ( print .Values | sha256sum ) -}}
+# Convert type from interface {} to map[string]interface {}
+{{- $_ := set .Values.controllers.main "annotations" (dict "values-checksum" ( print .Values | sha256sum ) ) -}}
 
 {{ if .Values.enableRbac }}
 {{- $_ := set .Values.serviceAccount "create" "true" -}}
