@@ -140,7 +140,8 @@ persistence:
   logs:
     enabled: true
     type: emptyDir
-    mountPath: /app/config/logs
+    globalMounts:
+      - path: /app/config/logs
 
 # resources:
 #   requests:
@@ -149,3 +150,21 @@ persistence:
 #   limits:
 #     memory: 200Mi
 #     cpu: 500m
+
+# -- Configure any unsupported raw resources here.
+rawResources: {}
+  # example:
+  #   # -- Enables or disables the resource. Defaults to true
+  #   enabled: true
+  #   # -- Specify the apiVersion of the resource.
+  #   apiVersion: v1
+  #   # -- Specify the kind of the resource.
+  #   kind: Endpoint
+  #   # -- Override the name suffix that is used for this resource.
+  #   nameOverride: ""
+  #   # -- Provide additional annotations which may be required.
+  #   annotations: {}
+  #   # -- Provide additional labels which may be required.
+  #   labels: {}
+  #   # -- Configure the contents of the resource that is to be rendered.
+  #   spec:
