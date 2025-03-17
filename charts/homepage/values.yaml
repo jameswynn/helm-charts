@@ -64,6 +64,7 @@ config:
         - Github:
             - abbr: GH
               href: https://github.com/
+
   services:
     - My First Group:
         - My First Service:
@@ -108,6 +109,17 @@ config:
   docker:
   settings:
 
+  # all sections can alternately be appended with "String" such as this example settings. This is useful
+  # for defining a stable ordering. Unfortunately Go's (and therefore Helm's) toYaml function sorts keys
+  # and loses and input ordering. Using a string is the best way around this.
+  settingsString: |
+    title: Homepage
+    headerStyle: boxed
+    layout:
+      My First Group:
+      My Second Group:
+      My Third Group:
+
 # -- Main environment variables. Template enabled.
 # Syntax options:
 # A) TZ: UTC
@@ -127,6 +139,10 @@ config:
 # F) - name: TZ
 #      value: '{{ .Release.Name }}'
 env:
+  - name: HOMEPAGE_ALLOWED_HOSTS
+    # This value must be set
+    # ref: https://gethomepage.dev/installation/#homepage_allowed_hosts
+    value: null
 
 # To include environment variables from other configs or other secrets for use in
 # Homepage's variable substitutions. Refer to them here.

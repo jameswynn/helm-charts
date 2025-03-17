@@ -15,26 +15,38 @@ metadata:
 data:
   bookmarks.yaml: {{- if .Values.config.bookmarks }} |
 {{- .Values.config.bookmarks | toYaml | nindent 4}}
+{{- else if .Values.config.bookmarksString }} |
+{{- .Values.config.bookmarksString | nindent 4}}
 {{- else }} ""
 {{- end }}
   docker.yaml: {{- if .Values.config.docker }} |
 {{- .Values.config.docker | toYaml | nindent 4 }}
+{{- else if .Values.config.dockerString }} |
+{{- .Values.config.dockerString | nindent 4}}
 {{- else }} ""
 {{- end }}
   kubernetes.yaml: {{- if .Values.config.kubernetes }} |
 {{- .Values.config.kubernetes | toYaml | nindent 4 }}
+{{- else if .Values.config.kubernetesString }} |
+{{- .Values.config.kubernetesString | nindent 4}}
 {{- else }} ""
 {{- end }}
   services.yaml: {{- if .Values.config.services }} |
 {{- .Values.config.services | toYaml | nindent 4 }}
+{{- else if .Values.config.servicesString }} |
+{{- .Values.config.servicesString | nindent 4}}
 {{- else }} ""
 {{- end }}
   settings.yaml: {{- if .Values.config.settings }} |
 {{- .Values.config.settings | toYaml | nindent 4 }}
+{{- else if .Values.config.settingsString }} |
+{{- .Values.config.settingsString | nindent 4}}
 {{- else }} ""
 {{- end }}
   widgets.yaml: {{- if .Values.config.widgets }} |
 {{- .Values.config.widgets | toYaml | nindent 4 }}
+{{- else if .Values.config.widgetsString }} |
+{{- .Values.config.widgetsString | nindent 4}}
 {{- else }} ""
 {{- end }}
 {{ end }}
