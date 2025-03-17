@@ -32,9 +32,22 @@ subPath:
   - path: widgets.yaml
     mountPath: /app/config/widgets.yaml
 {{- end -}}
+{{/* Append the base config dir, to enable custom css/js to be copied at startup */}}
+{{- define "homepage.baseConfigVolume" -}}
+enabled: "true"
+type: "custom"
+volumeSpec:
+  emptyDir: {}
+mountPath: /app/config
+{{- end -}}
+
+{{ $checkSum := ( print .Values | sha256sum ) -}}
+
+{{- $_ := set .Values.persistence "homepage-base-config" (include "homepage.baseConfigVolume" . | fromYaml) -}}
 {{- $_ := set .Values.persistence "homepage-config" (include "homepage.configVolume" . | fromYaml) -}}
 
-{{- $_ := set .Values.controller.annotations "values-checksum" ( print .Values | sha256sum ) -}}
+{{- $_ := set .Values.controller.annotations "values-checksum" $checkSum -}}
+{{- $_ := set .Values.podAnnotations "values-checksum" $checkSum -}}
 
 {{ if .Values.enableRbac }}
 {{- $_ := set .Values.serviceAccount "create" "true" -}}
