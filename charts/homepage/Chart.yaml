@@ -3,8 +3,8 @@ apiVersion: v2
 description: Chart for Homepage
 icon: https://github.com/gethomepage/homepage/blob/main/public/mstile-150x150.png
 name: homepage
-version: 2.0.1
-appVersion: v0.9.6
+version: 2.0.2
+appVersion: v1.0.3
 sources:
   - https://github.com/jameswynn/helm-charts/charts/homepage
   - https://github.com/gethomepage/homepage/
@@ -17,4 +17,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: Checksum of values added to the deployment to ensure config changes cause reload
+      description: Updated base app
