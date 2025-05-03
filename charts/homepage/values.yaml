@@ -106,6 +106,8 @@ config:
   kubernetes:
     # change mode to 'cluster' to use RBAC service account
     mode: disable
+    # Uncomment to enable gateway api HttpRoute discovery.
+    #gateway: true
   docker:
   settings:
 
