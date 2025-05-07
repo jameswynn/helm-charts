@@ -30,6 +30,29 @@ entries:
         - kind: added
           description: Updated base app
     apiVersion: v2
+    appVersion: v1.2.0
+    created: "2025-05-07T13:37:04.227120259Z"
+    dependencies:
+    - name: common
+      repository: https://bjw-s-labs.github.io/helm-charts
+      version: 1.5.1
+    description: Chart for Homepage
+    digest: 67df14060d46e9fbf70042086b56d97984d64406da893acc2b5bd8c31e41f9de
+    icon: https://github.com/gethomepage/homepage/blob/main/public/mstile-150x150.png
+    maintainers:
+    - name: jameswynn
+    name: homepage
+    sources:
+    - https://github.com/jameswynn/helm-charts/charts/homepage
+    - https://github.com/gethomepage/homepage/
+    urls:
+    - https://github.com/jameswynn/helm-charts/releases/download/homepage-2.1.0/homepage-2.1.0.tgz
+    version: 2.1.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
+          description: Updated base app
+    apiVersion: v2
     appVersion: v1.0.3
     created: "2025-03-17T15:22:32.456917885Z"
     dependencies:
@@ -352,4 +375,4 @@ entries:
     urls:
     - https://github.com/jameswynn/helm-charts/releases/download/homepage-0.0.1/homepage-0.0.1.tgz
     version: 0.0.1
-generated: "2025-03-17T15:22:32.457107474Z"
+generated: "2025-05-07T13:37:04.227207372Z"
