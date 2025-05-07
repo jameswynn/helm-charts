@@ -17,8 +17,8 @@ jobs:
       # https://github.com/helm/chart-releaser-action/issues/209
       - name: Abort If No Chart Versions Changed
         run: |
-          source_sha="${{ github.event.pull_request.base.sha }}" # base commit in the PR
-          target_sha="${{ github.sha }}" # merge commit sha
+          target_sha="${{ github.sha }}" # current commit
+          source_sha=`git rev-parse ${target_sha}^` # previous commit
           # get the list of charts that have changed
           changed="$(git diff --name-only --diff-filter=ACMRT "$source_sha" "$target_sha" -- "charts/*/Chart.yaml" | cut -d '/' -f 2)"
 
