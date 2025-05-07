@@ -33,7 +33,6 @@ jobs:
               changed_charts+=("$chart")
             fi
           done < <(echo -n "$changed")
-          if
           if [ -z $changed ]; then
               exit 1
           else
