@@ -14,6 +14,32 @@ jobs:
         with:
           fetch-depth: 0
 
+      # https://github.com/helm/chart-releaser-action/issues/209
+      - name: Abort If No Chart Versions Changed
+        run: |
+          source_sha="${{ github.event.pull_request.base.sha }}" # base commit in the PR
+          target_sha="${{ github.sha }}" # merge commit sha
+          # get the list of charts that have changed
+          changed="$(git diff --name-only --diff-filter=ACMRT "$source_sha" "$target_sha" -- "charts/*/Chart.yaml" | cut -d '/' -f 2)"
+
+          # check if the PR has modified any chart versions
+          # prevent https://www.shellcheck.net/wiki/SC2030 using '<<<' to read into an array
+          changed_charts=()
+          while read -r chart; do
+            old_version="$(git show "$source_sha":"charts/$chart/Chart.yaml" | yq '.version')"
+            new_version="$(yq '.version' "charts/$chart/Chart.yaml")"
+            if [[ "$old_version" != "$new_version" ]]; then
+              echo "::notice::Chart '$chart' has changed from version $old_version to $new_version"
+              changed_charts+=("$chart")
+            fi
+          done < <(echo -n "$changed")
+          if
+          if [ -z $changed ]; then
+              exit 1
+          else
+              exit 0
+          fi
+
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
@@ -24,6 +50,8 @@ jobs:
           version: v3.8.1
 
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.4.0
+        uses: helm/chart-releaser-action@v1.7.0
+        with:
+          skip_existing: true
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

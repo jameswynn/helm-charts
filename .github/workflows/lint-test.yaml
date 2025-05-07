@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: 3.13.3
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.2.1
@@ -41,4 +41,4 @@ jobs:
         if: steps.list-changed.outputs.changed == 'true'
 
       - name: Run chart-testing (install)
-        run: ct install --target-branch main --chart-repos bjw-s=https://bjw-s.github.io/helm-charts
+        run: ct install --target-branch main --chart-repos bjw-s=https://bjw-s-labs.github.io/helm-charts
